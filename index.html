@@ -19,8 +19,9 @@
   //新建杨辉三角数组的方法
   function newYanghui(rows) {
     var arr = new Array();
+    if(rows)
     for(var i = 0; i <= rows; i++){
-      arr[i] = new Array;
+      arr[i] = new Array();
       for(var j = 0; j < i + 1; j++){
         if (i == 0){
           arr[i][j] = 1;
@@ -40,11 +41,12 @@
   //页面加载后的事件
   window.onload = function () {
     var rows = getQueryString("rows");
-    var yanghui = newYanghui(rows);
+    var yanghui = new Array();
     var outbox = document.getElementById("outBox");
     var inRows = document.getElementsByName("rows")[0];
     if(rows != null){
       inRows.setAttribute("value",rows);
+      yanghui = newYanghui(rows);
     }
     for(var i = 0; i < yanghui.length; i++) {
       var rowPara = document.createElement("div");
